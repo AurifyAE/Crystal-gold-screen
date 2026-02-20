@@ -5,6 +5,7 @@ import Mainlogo from "/images/logo.svg";
 const LogoSection = () => {
   const [times, setTimes] = useState({
     date: "",
+    day: "",
     uae: "",
     usa: "",
     uk: "",
@@ -23,6 +24,13 @@ const LogoSection = () => {
         })
         .toUpperCase()
         .replace(/\s/g, " "); // ensure spacing
+
+      const dayStr = now
+        .toLocaleDateString("en-GB", {
+          weekday: "long",
+        })
+        .toUpperCase();
+
 
       // Time with AM/PM for each location
       const timeOptions = {
@@ -48,6 +56,7 @@ const LogoSection = () => {
 
       setTimes({
         date: dateStr,
+        day: dayStr,
         uae: uaeTime,
         usa: usaTime,
         uk: ukTime,
@@ -66,24 +75,41 @@ const LogoSection = () => {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        gap: "2vw",         
+        gap: "2vw",
         width: "100%",
       }}
     >
       {/* Shared Date */}
-      <Box >
+      <Box sx={{
+        display: "flex",
+        alignItems: "center",
+        gap: "1vw",
+      }}>
         <Typography
           sx={{
-            fontSize: "1.5vw",
+            fontSize: "2.5vw",
             fontWeight: 700,
             letterSpacing: "1.2px",
-            background: "linear-gradient(90deg, #70DDF0, #A8D0F5, #70CCF0)",
+            backgroundColor: 'white',
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             textShadow: "0 1px 6px rgba(200, 160, 60, 0.3)",
           }}
         >
           {times.date || "— — —"}
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: "1.3vw",
+            fontWeight: 700,
+            letterSpacing: "1.2px",
+            backgroundColor: 'white',
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            textShadow: "0 1px 6px rgba(200, 160, 60, 0.3)",
+          }}
+        >
+          {times.day || "— — —"}
         </Typography>
       </Box>
       <Box
@@ -97,44 +123,50 @@ const LogoSection = () => {
       </Box>
 
 
-      <Box sx={{ textAlign: "center" }}>
+      <Box sx={{
+        display: "flex",
+        alignItems: "center",
+        gap: "4vw",
+      }}>
+        <Box sx={{ textAlign: "center" }}>
 
-        <Typography sx={{ display: 'flex', alignItems: 'center', gap: '0.5vw', fontSize: "1.4vw", fontWeight: 600, color: "#70DDF0" }}>
-          <Box sx={{ width: "3vw" }}>
-            <img src='/icons/uae.png'
-            />
-          </Box>
-          UAE
-        </Typography>
-        <Typography sx={{ fontSize: "1.6vw", color: "#fff" }}>
-          {times.uae || "--:-- AM"}
-        </Typography>
-      </Box>
+          <Typography sx={{ display: 'flex', alignItems: 'center', gap: '0.5vw', fontSize: "1.4vw", fontWeight: 600, color: "#70DDF0" }}>
+            <Box sx={{ width: "3vw" }}>
+              <img src='/icons/uae.png'
+              />
+            </Box>
+            UAE
+          </Typography>
+          <Typography sx={{ fontSize: "1.6vw", color: "#fff" }}>
+            {times.uae || "--:-- AM"}
+          </Typography>
+        </Box>
 
-      {/* USA */}
-      <Box sx={{ textAlign: "center" }}>
-        <Typography sx={{ display: 'flex', alignItems: 'center', gap: '0.5vw', fontSize: "1.4vw", fontWeight: 600, color: "#70DDF0" }}>
-          <Box sx={{ width: "3vw" }}>
-            <img src='/icons/usa.png'
-            />
-          </Box>USA
-        </Typography>
-        <Typography sx={{ fontSize: "1.6vw", color: "#fff" }}>
-          {times.usa || "--:-- AM"}
-        </Typography>
-      </Box>
+        {/* USA */}
+        <Box sx={{ textAlign: "center" }}>
+          <Typography sx={{ display: 'flex', alignItems: 'center', gap: '0.5vw', fontSize: "1.4vw", fontWeight: 600, color: "#70DDF0" }}>
+            <Box sx={{ width: "3vw" }}>
+              <img src='/icons/usa.png'
+              />
+            </Box>USA
+          </Typography>
+          <Typography sx={{ fontSize: "1.6vw", color: "#fff" }}>
+            {times.usa || "--:-- AM"}
+          </Typography>
+        </Box>
 
-      {/* UK */}
-      <Box sx={{ textAlign: "center" }}>
-        <Typography sx={{ display: 'flex', alignItems: 'center', gap: '0.5vw', fontSize: "1.4vw", fontWeight: 600, color: "#70DDF0" }}>
-          <Box sx={{ width: "3vw" }}>
-            <img src='/icons/uk.png'
-            />
-          </Box> UK
-        </Typography>
-        <Typography sx={{ fontSize: "1.6vw", color: "#fff" }}>
-          {times.uk || "--:-- AM"}
-        </Typography>
+        {/* UK */}
+        <Box sx={{ textAlign: "center" }}>
+          <Typography sx={{ display: 'flex', alignItems: 'center', gap: '0.5vw', fontSize: "1.4vw", fontWeight: 600, color: "#70DDF0" }}>
+            <Box sx={{ width: "3vw" }}>
+              <img src='/icons/uk.png'
+              />
+            </Box> UK
+          </Typography>
+          <Typography sx={{ fontSize: "1.6vw", color: "#fff" }}>
+            {times.uk || "--:-- AM"}
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

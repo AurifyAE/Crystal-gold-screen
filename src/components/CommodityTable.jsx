@@ -77,7 +77,7 @@ const CommodityTable = ({ commodities }) => {
           display: "grid",
           // gridTemplateColumns: "1fr 1fr 1fr",
           background: 'linear-gradient( 90deg, rgba(72, 54, 12, 0.9) 0%, rgba(123, 93, 21, 0.9) 50%, rgba(72, 54, 12, 0.9) 100%)',
-          gridTemplateColumns: "1fr 1fr 1fr  1fr",
+          gridTemplateColumns: "1fr 1fr 0.5fr  1fr",
           bgcolor: "rgba(18, 28, 35, 0.92)",
           borderBottom: "1px solid rgba(180, 140, 60, 0.38)",
      
@@ -177,7 +177,7 @@ const CommodityTable = ({ commodities }) => {
               key={index}
               sx={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr  1fr",
+                gridTemplateColumns: "1fr 1fr 0.5fr  1fr",
                 alignItems: "end",
                 borderBottom: index < rows.length - 1 ? "1px solid rgba(80,90,100,0.18)" : "none",
                 background: index % 2 === 0 ? "#09331f" : "#0C2216",
@@ -236,8 +236,9 @@ const CommodityTable = ({ commodities }) => {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "0.5vw",
-                   py: "1vw",
+                  py: "1vw",
                   px: "1.5vw",
+                  backgroundColor: "#CBA544", // cyan/teal BID
                   height:'100%',
                   border: '1px solid #989454'
                 }}
@@ -246,7 +247,7 @@ const CommodityTable = ({ commodities }) => {
                   sx={{
                     fontSize: "1.32vw",
                     fontWeight: 600,
-                    color: "#CBA544", // cyan/teal BID
+                    color: "#fff", // cyan/teal BID
                   }}
                 >
                   AED

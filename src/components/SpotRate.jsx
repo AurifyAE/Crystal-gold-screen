@@ -57,31 +57,41 @@ const SpotRate = () => {
     return (
       <Box
         sx={{
-          background: '#FFFFFF0A',
+          background: 'hsla(0 100% 45.1% / 0.01)',
           borderRadius: "1.2vw",
-          padding: "1vw 2vw ",
+          padding: "1vw 0vw ",
           border: "0.12vw solid #c9a227",
           boxShadow: "0 0 2vw rgba(201,162,39,0.25)",
           color: "#fff",
-          backdropFilter: 'blur(5px)'
+          backdropFilter: 'blur(10px)'
         }}
       >
         <Box
           sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: "2vw",
+            display: "grid",
+            gridTemplateColumns: '1fr 1fr 1fr',
+            alignItems: 'center',
+            // gap: "2vw",
           }}
         >
-          {/* LEFT : ICON + NAME */}
           <Box
             sx={{
               display: "flex",
+              flexDirection: 'column',
               alignItems: "center",
-              gap: "1vw",
+              gap: "0.5vw",
             }}
           >
 
+            <Box
+              component="img"
+              src={metalImg}
+              sx={{
+                width: "3.5vw",
+                height: "3.5vw",
+                objectFit: "contain",
+              }}
+            />
             <Typography
               sx={{
                 fontSize: "2vw",
@@ -92,24 +102,26 @@ const SpotRate = () => {
             >
               {isGold ? "GOLD" : "SILVER"}
             </Typography>
-            <Box
-              component="img"
-              src={metalImg}
-              sx={{
-                width: "3.5vw",
-                height: "3.5vw",
-                objectFit: "contain",
-              }}
-            />
           </Box>
 
-          {/* BID SECTION */}
           <Box
             sx={{
               flex: 1,
               textAlign: "center",
+              position: 'relative'
             }}
           >
+            <Box
+              sx={{
+                height: '100%',
+                width: "2px",
+                backgroundImage: 'linear-gradient(to bottom,transparent,#c9a227,transparent)',
+                position: 'absolute',
+                left: '0px',
+                top: '0px',
+
+              }}
+            />
             <Typography
               sx={{
                 fontSize: "2.5vw",
@@ -150,13 +162,24 @@ const SpotRate = () => {
             </Typography>
           </Box>
 
-          {/* ASK SECTION */}
           <Box
             sx={{
               flex: 1,
               textAlign: "center",
+              position: 'relative'
             }}
           >
+            <Box
+              sx={{
+                height: '100%',
+                width: "2px",
+                backgroundImage: 'linear-gradient(to bottom,transparent,#c9a227,transparent)',
+                position: 'absolute',
+                left: '0px',
+                top: '0px',
+              }}
+            />
+
             <Typography
               sx={{
                 fontSize: "2.5vw",
