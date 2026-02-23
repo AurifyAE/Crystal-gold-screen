@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useSpotRate } from "../context/SpotRateContext";
 
-
 const OUNCE = 31.103;
 const AED = 3.674;
 
@@ -39,36 +38,42 @@ const CommodityTable = ({ commodities }) => {
     });
   };
 
-  const rows = commodities
-    ?.map((item) => {
-      const spot = getSpot(item.metal);
-      if (!spot) return null;
+  const rows =
+    commodities
+      ?.map((item) => {
+        const spot = getSpot(item.metal);
+        if (!spot) return null;
 
-      const mult = UNIT_MULTIPLIER[item.weight] || 1;
-      const pur = purityFactor(item.purity);
+        const mult = UNIT_MULTIPLIER[item.weight] || 1;
+        const pur = purityFactor(item.purity);
 
-      const baseBid = (spot.bid / OUNCE) * AED * mult * item.unit * pur;
-      const baseAsk = (spot.ask / OUNCE) * AED * mult * item.unit * pur;
+        const baseBid = (spot.bid / OUNCE) * AED * mult * item.unit * pur;
+        const baseAsk = (spot.ask / OUNCE) * AED * mult * item.unit * pur;
 
-      const bid = baseBid + (Number(item.buyCharge) || 0) + (Number(item.buyPremium) || 0);
-      const ask = baseAsk + (Number(item.sellCharge) || 0) + (Number(item.sellPremium) || 0);
+        const bid =
+          baseBid +
+          (Number(item.buyCharge) || 0) +
+          (Number(item.buyPremium) || 0);
+        const ask =
+          baseAsk +
+          (Number(item.sellCharge) || 0) +
+          (Number(item.sellPremium) || 0);
 
-      return {
-        purity: item.purity,
-        metal: item.metal,
-        unit: `${item.unit} ${item.weight}`,
-        bid,
-        ask,
-      };
-    })
-    .filter(Boolean) ?? [];
+        return {
+          purity: item.purity,
+          metal: item.metal,
+          unit: `${item.unit} ${item.weight}`,
+          bid,
+          ask,
+        };
+      })
+      .filter(Boolean) ?? [];
 
   return (
     <Box
       sx={{
         width: "100%",
         mt: "1.2vw",
-
       }}
     >
       {/* Header */}
@@ -76,11 +81,12 @@ const CommodityTable = ({ commodities }) => {
         sx={{
           display: "grid",
           // gridTemplateColumns: "1fr 1fr 1fr",
-          background: 'linear-gradient( 90deg, rgba(72, 54, 12, 0.9) 0%, rgba(123, 93, 21, 0.9) 50%, rgba(72, 54, 12, 0.9) 100%)',
+          background:
+            "linear-gradient( 90deg, rgba(72, 54, 12, 0.9) 0%, rgba(123, 93, 21, 0.9) 50%, rgba(72, 54, 12, 0.9) 100%)",
           gridTemplateColumns: "1fr 1fr 0.5fr  1fr",
           bgcolor: "rgba(18, 28, 35, 0.92)",
           borderBottom: "1px solid rgba(180, 140, 60, 0.38)",
-     
+
           borderRadius: "0.8vw",
           overflow: "hidden",
         }}
@@ -93,8 +99,8 @@ const CommodityTable = ({ commodities }) => {
             letterSpacing: "0.04vw",
             py: "1vw",
             px: "1.5vw",
-            height:'100%',
-             textAlign: "start",
+            height: "100%",
+            textAlign: "start",
           }}
         >
           Commodity
@@ -108,8 +114,7 @@ const CommodityTable = ({ commodities }) => {
             textAlign: "center",
             py: "1vw",
             px: "1.5vw",
-            height:'100%',
- 
+            height: "100%",
           }}
         >
           Unit
@@ -133,8 +138,8 @@ const CommodityTable = ({ commodities }) => {
             color: "#e3c078",
             py: "1vw",
             px: "1.5vw",
-            height:'100%',
- 
+            height: "100%",
+
             textAlign: "center",
             pr: "1.2vw",
           }}
@@ -148,8 +153,8 @@ const CommodityTable = ({ commodities }) => {
             fontWeight: 600,
             py: "1vw",
             px: "1.5vw",
-            height:'100%',
- 
+            height: "100%",
+
             color: "#e3c078",
             textAlign: "center",
           }}
@@ -157,131 +162,133 @@ const CommodityTable = ({ commodities }) => {
           ASK
         </Typography>
       </Box>
-
-      {/* Rows */}
-      {rows.length === 0 ? (
-        <Typography
-          sx={{
-            py: "3vw",
-            textAlign: "center",
-            color: "rgba(227,192,120,0.4)",
-            fontSize: "1.25vw",
-          }}
-        >
-          No data available
-        </Typography>
-      ) : (
-        rows.map((row, index) => (
-          <>
-            <Box
-              key={index}
-              sx={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 0.5fr  1fr",
-                alignItems: "end",
-                borderBottom: index < rows.length - 1 ? "1px solid rgba(80,90,100,0.18)" : "none",
-                background: index % 2 === 0 ? "#09331f" : "#0C2216",
-                mt: '0.5vw',
-                
-              }}
-              >
-              <Typography
+      <Box
+        sx={{
+          height: "18vw",
+          width: "100%",
+          overflow: "auto",
+          scrollbarWidth: "none",
+        }}
+      >
+        {/* Rows */}
+        {rows.length === 0 ? (
+          <Typography
+            sx={{
+              py: "3vw",
+              textAlign: "center",
+              color: "rgba(227,192,120,0.4)",
+              fontSize: "1.25vw",
+            }}
+          >
+            No data available
+          </Typography>
+        ) : (
+          rows.map((row, index) => (
+            <>
+              <Box
+                key={index}
                 sx={{
-                  fontSize: "1.24vw",
-                  fontWeight: 800,
-                  color: "#CBA544",
-                  display: 'flex',
-                  alignItems: 'center ',
-                  justifyContent: 'start',
-                  gap: '0.3vw',
-                  width: '100%',
-                  py: "1vw",
-                  px: "1.5vw",
-                  height:'100%',
-                  border: '1px solid #989454'
-
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr 0.5fr  1fr",
+                  alignItems: "end",
+                  borderBottom:
+                    index < rows.length - 1
+                      ? "1px solid rgba(80,90,100,0.18)"
+                      : "none",
+                  background: index % 2 === 0 ? "#09331f" : "#0C2216",
+                  mt: "0.5vw",
                 }}
               >
-                {row.metal}
                 <Typography
                   sx={{
-                    fontSize: "1vw",
-                    fontWeight: 400,
+                    fontSize: "1.24vw",
+                    fontWeight: 800,
                     color: "#CBA544",
-                    // mb:'-0.5vw'
+                    display: "flex",
+                    alignItems: "center ",
+                    justifyContent: "start",
+                    gap: "0.3vw",
+                    width: "100%",
+                    py: "1vw",
+                    px: "1.5vw",
+                    height: "100%",
+                    border: "1px solid #989454",
                   }}
                 >
-                  {row.purity}
+                  {row.metal}
+                  <Typography
+                    sx={{
+                      fontSize: "1vw",
+                      fontWeight: 400,
+                      color: "#CBA544",
+                      // mb:'-0.5vw'
+                    }}
+                  >
+                    {row.purity}
+                  </Typography>
                 </Typography>
-              </Typography>
 
-              <Typography
-                sx={{
-                  fontSize: "1.18vw",
-                  color: "#CBA544",
-                  textAlign: "center",
-                  py: "1vw",
-                  px: "1.5vw",
-                  height:'100%',
-                  border: '1px solid #989454'
-                }}
-              >
-                {row.unit}
-              </Typography>
-
-               
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.5vw",
-                  py: "1vw",
-                  px: "1.5vw",
-                  backgroundColor: "#CBA544", // cyan/teal BID
-                  height:'100%',
-                  border: '1px solid #989454'
-                }}
-              >
                 <Typography
                   sx={{
-                    fontSize: "1.32vw",
-                    fontWeight: 600,
-                    color: "#fff", // cyan/teal BID
+                    fontSize: "1.18vw",
+                    color: "#CBA544",
+                    textAlign: "center",
+                    py: "1vw",
+                    px: "1.5vw",
+                    height: "100%",
+                    border: "1px solid #989454",
                   }}
                 >
-                  AED
+                  {row.unit}
                 </Typography>
 
-              </Box>
-
-              <Box
-                sx={{
-                
-                  py: "1vw",
-                  px: "1.5vw",
-                  height:'100%',
-                  border: '1px solid #989454'
-                }}
-              >
-                <Typography
+                <Box
                   sx={{
-                    fontSize: "1.32vw",
-                    fontWeight: 600,
-                    color: "#CBA544", // soft pink ASK
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.5vw",
+                    py: "1vw",
+                    px: "1.5vw",
+                    backgroundColor: "#CBA544", // cyan/teal BID
+                    height: "100%",
+                    border: "1px solid #989454",
                   }}
                 >
-                  {formatPrice(row.ask)}
-                </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "1.32vw",
+                      fontWeight: 600,
+                      color: "#fff", // cyan/teal BID
+                    }}
+                  >
+                    AED
+                  </Typography>
+                </Box>
 
-
+                <Box
+                  sx={{
+                    py: "1vw",
+                    px: "1.5vw",
+                    height: "100%",
+                    border: "1px solid #989454",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "1.32vw",
+                      fontWeight: 600,
+                      color: "#CBA544", // soft pink ASK
+                    }}
+                  >
+                    {formatPrice(row.ask)}
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
-
-          </>
-        ))
-      )}
-
+            </>
+          ))
+        )}
+      </Box>
     </Box>
   );
 };
