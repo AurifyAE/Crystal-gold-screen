@@ -166,7 +166,7 @@ function TvScreen() {
     >
       <div className="background_lines">
         {/* <img src="/images/background.png" alt="Background Lines" /> */}
-        <img src="/images/background1.svg" alt="Background Lines" />
+        {/* <img src="/images/background1.svg" alt="Background Lines" /> */}
       </div>
       {/* Grid */}
       <Grid
