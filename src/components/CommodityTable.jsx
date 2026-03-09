@@ -86,7 +86,6 @@ const CommodityTable = ({ commodities }) => {
           gridTemplateColumns: "1fr 1fr 0.5fr  1fr",
           bgcolor: "rgba(18, 28, 35, 0.92)",
           borderBottom: "1px solid rgba(180, 140, 60, 0.38)",
-
           borderRadius: "0.8vw",
           overflow: "hidden",
         }}
@@ -94,7 +93,7 @@ const CommodityTable = ({ commodities }) => {
         <Typography
           sx={{
             fontSize: "1.2vw",
-            fontWeight: 600,
+            fontWeight: 700,
             color: "#e3c078",
             letterSpacing: "0.04vw",
             py: "1vw",
@@ -103,13 +102,13 @@ const CommodityTable = ({ commodities }) => {
             textAlign: "start",
           }}
         >
-          Commodity
+          COMMODITY
         </Typography>
 
         <Typography
           sx={{
             fontSize: "1.2vw",
-            fontWeight: 600,
+            fontWeight: 700,
             color: "#e3c078",
             textAlign: "center",
             py: "1vw",
@@ -117,13 +116,13 @@ const CommodityTable = ({ commodities }) => {
             height: "100%",
           }}
         >
-          Unit
+          UNIT
         </Typography>
 
         {/* <Typography
           sx={{
             fontSize: "1.2vw",
-            fontWeight: 600,
+            fontWeight: 700,
             color: "#e3c078",
             textAlign: "right",
             pr: "1.2vw",
@@ -134,7 +133,7 @@ const CommodityTable = ({ commodities }) => {
         <Typography
           sx={{
             fontSize: "1.2vw",
-            fontWeight: 600,
+            fontWeight: 700,
             color: "#e3c078",
             py: "1vw",
             px: "1.5vw",
@@ -150,7 +149,7 @@ const CommodityTable = ({ commodities }) => {
         <Typography
           sx={{
             fontSize: "1.2vw",
-            fontWeight: 600,
+            fontWeight: 700,
             py: "1vw",
             px: "1.5vw",
             height: "100%",
@@ -235,6 +234,8 @@ const CommodityTable = ({ commodities }) => {
                     textAlign: "center",
                     py: "1vw",
                     px: "1.5vw",
+                    fontWeight: 700,
+
                     height: "100%",
                     border: "1px solid #989454",
                   }}
@@ -258,7 +259,8 @@ const CommodityTable = ({ commodities }) => {
                   <Typography
                     sx={{
                       fontSize: "1.32vw",
-                      fontWeight: 600,
+                      fontWeight: 700,
+
                       color: "#fff", // cyan/teal BID
                     }}
                   >
@@ -277,7 +279,8 @@ const CommodityTable = ({ commodities }) => {
                   <Typography
                     sx={{
                       fontSize: "1.32vw",
-                      fontWeight: 600,
+                      fontWeight: 700,
+
                       color: "#CBA544", // soft pink ASK
                     }}
                   >
