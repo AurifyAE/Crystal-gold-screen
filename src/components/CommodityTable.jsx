@@ -92,11 +92,11 @@ const CommodityTable = ({ commodities }) => {
       >
         <Typography
           sx={{
-            fontSize: "1.5vw",
+            fontSize: "1.8vw",
             fontWeight: 700,
             color: "#e3c078",
             letterSpacing: "0.04vw",
-            py: "0.8vw",
+            py: "0.5vw",
             px: "1.5vw",
             height: "100%",
             textAlign: "start",
@@ -107,11 +107,11 @@ const CommodityTable = ({ commodities }) => {
 
         <Typography
           sx={{
-            fontSize: "1.5vw",
+            fontSize: "1.8vw",
             fontWeight: 700,
             color: "#e3c078",
             textAlign: "center",
-            py: "0.8vw",
+            py: "0.5vw",
             px: "1.5vw",
             height: "100%",
           }}
@@ -132,10 +132,10 @@ const CommodityTable = ({ commodities }) => {
         </Typography> */}
         <Typography
           sx={{
-            fontSize: "1.5vw",
+            fontSize: "1.8vw",
             fontWeight: 700,
             color: "#e3c078",
-            py: "0.8vw",
+            py: "0.5vw",
             px: "1.5vw",
             height: "100%",
 
@@ -148,9 +148,9 @@ const CommodityTable = ({ commodities }) => {
 
         <Typography
           sx={{
-            fontSize: "1.5vw",
+            fontSize: "1.8vw",
             fontWeight: 700,
-            py: "0.8vw",
+            py: "0.5vw",
             px: "1.5vw",
             height: "100%",
 
@@ -200,7 +200,7 @@ const CommodityTable = ({ commodities }) => {
               >
                 <Typography
                   sx={{
-                    fontSize: "1.5vw",
+                    fontSize: "1.8vw",
                     fontWeight: 800,
                     color: "#CBA544",
                     display: "flex",
@@ -208,7 +208,7 @@ const CommodityTable = ({ commodities }) => {
                     justifyContent: "start",
                     gap: "0.3vw",
                     width: "100%",
-                    py: "0.8vw",
+                    py: "0.5vw",
                     px: "1.5vw",
                     height: "100%",
                     border: "1px solid #989454",
@@ -229,11 +229,11 @@ const CommodityTable = ({ commodities }) => {
 
                 <Typography
                   sx={{
-                    fontSize: "1.5vw",
+                    fontSize: "1.8vw",
 
                     color: "#CBA544",
                     textAlign: "center",
-                    py: "0.8vw",
+                    py: "0.5vw",
                     px: "1.5vw",
                     fontWeight: 700,
 
@@ -250,7 +250,7 @@ const CommodityTable = ({ commodities }) => {
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "0.5vw",
-                    py: "0.8vw",
+                    py: "0.5vw",
                     px: "1.5vw",
                     backgroundColor: "#CBA544", // cyan/teal BID
                     height: "100%",
@@ -259,7 +259,7 @@ const CommodityTable = ({ commodities }) => {
                 >
                   <Typography
                     sx={{
-                      fontSize: "1.5vw",
+                      fontSize: "1.8vw",
 
                       fontWeight: 700,
 
@@ -272,7 +272,7 @@ const CommodityTable = ({ commodities }) => {
 
                 <Box
                   sx={{
-                    py: "0.8vw",
+                    py: "0.5vw",
                     px: "1.5vw",
                     height: "100%",
                     border: "1px solid #989454",
@@ -280,7 +280,7 @@ const CommodityTable = ({ commodities }) => {
                 >
                   <Typography
                     sx={{
-                      fontSize: "1.5vw",
+                      fontSize: "1.8vw",
 
                       fontWeight: 700,
 
