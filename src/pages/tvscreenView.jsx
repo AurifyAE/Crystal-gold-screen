@@ -170,6 +170,8 @@ function TvScreen() {
       </div>
       {/* Grid */}
       <Grid
+        className="custom-grid"
+
         container
         spacing={4}
         minHeight="100%"
@@ -186,7 +188,6 @@ function TvScreen() {
           // justifyContent='space-between'
           justifyContent="space-around"
         >
-
           <LogoSection />
           <SpotRate />
           <CommodityTable commodities={commodities} />

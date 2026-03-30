@@ -163,7 +163,7 @@ const CommodityTable = ({ commodities }) => {
       </Box>
       <Box
         sx={{
-          height: "18vw",
+          height: "22vw",
           width: "100%",
           overflow: "auto",
           scrollbarWidth: "none",
